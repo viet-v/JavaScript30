@@ -60,14 +60,36 @@
       width: 50%;
       height: 6px;
       background: black;
+      border-radius: 30%;
       position: absolute;
       top: 50%;
+      transform: rotate(90deg);
+      transform-origin: 100%;
     }
 
   </style>
 
   <script>
+    const secondHand = document.querySelector('.second-hand')
+    const minHand = document.querySelector('.min-hand')
+    const hourHand = document.querySelector('.hour-hand')
 
+    function getTime () {
+      const now = new Date()
+      const second = now.getSeconds()
+      const minute = now.getMinutes()
+      const hour = now.getHours()
+      const secondDegree = (second / 60) * 360 + 90
+      const minuteDegree = (minute / 60) * 360 + 90
+      const hourDegree = (hour / 60) * 360 + 90
+      secondHand.style.transform = `rotate(${secondDegree}deg)`
+      minHand.style.transform = `rotate(${minuteDegree}deg)`
+      hourHand.style.transform = `rotate(${hourDegree}deg)`
+      console.log(second, minute)
+    }
+
+    setInterval(getTime, 1000) // run getTime() every 1000 miliseconds (1 second)
+    
 
   </script>
 </body>
