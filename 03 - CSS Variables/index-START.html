@@ -22,6 +22,21 @@
 
   <style>
 
+    :root {   /* global css variable */
+      --base: #ffc600;
+      --blur: 0px;
+      --spacing: 10px;
+    }
+
+    img {
+      padding: var(--spacing);  /* reference back to global css variable at :root */
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base)
+    }
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -44,7 +59,17 @@
     }
   </style>
 
+
   <script>
+    const inputs = document.querySelectorAll('.controls input')
+    
+    function updateChange() {
+      const suffix = this.dataset.sizing || '';  // suffix is px when it comes to spacing and blur, '' if it is color (--base)
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+    }
+
+    inputs.forEach(input => input.addEventListener('mousemove', updateChange))
+
   </script>
 
 </body>
