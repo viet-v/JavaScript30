@@ -18,28 +18,61 @@
     }
 
     // Regular
+    console.group('all console brothers')
+    console.log('yooo!')
 
     // Interpolated
+    console.log('hey lets get some %s', 'drinks!')
+
 
     // Styled
+    console.log('%c I am hungry','font-size: 30px; color: red; text-transform: uppercase; background:yellow')
 
     // warning!
+    console.warn('%c hey!', 'text-transform: uppercase; color: red')
 
     // Error :|
 
+    console.error('Oops, you did wrong man')
+
     // Info
+    console.info('You look good today')
 
     // Testing
 
+    console.assert(1 + 1 < 2, 'Relearn 2nd grade math bro')  // if wrong, print the later string
+
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
-
-    // Grouping together
+    const p = document.querySelector('p')
+    
+    console.dir(p)
+    console.log(p)
+    // console.clear()
+    // Grouping together ========== has beginning and end, same content. Has group or groupCollapsed
 
     // counting
 
-    // timing
+    'james'
+    'james'
+    'james'
+    'james'
+    console.count('james')
+    console.count('james') //2
+    console.count(p)
+    // timing    =============== has beginning and end, same content
+
+    console.time('start counting')
+    console.log('doing something')
+    const result = 68 * 11
+    console.info(98 * 11)
+    console.assert(68 * 11 === 6148, `no the answer is ${result}`)
+    console.timeEnd('start counting')
+
+
+    console.groupEnd('all console brothers')
 
   </script>
 </body>
